@@ -10,12 +10,12 @@ export default function StickersPage({ packName, stickers }: InferGetStaticProps
         <title>hueputalo stickers</title>
       </Head>
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20">
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-8 xl:px-20">
         <h1 className="uppercase text-6xl my-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-yellow-600 via-yellow-300 to-yellow-600">
           hueputalo stickers
         </h1>
 
-        <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+        <div className="grid grid-rows-6 sm:grid-rows-3 grid-flow-col gap-4">
           {stickers.map((slug, idx) => (
             <Image
               key={idx}
