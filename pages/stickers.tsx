@@ -11,7 +11,7 @@ export default function StickersPage({ packName, stickers }: InferGetStaticProps
       </Head>
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-8 xl:px-20">
-        <h1 className="uppercase text-6xl my-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-yellow-600 via-yellow-300 to-yellow-600">
+        <h1 className="uppercase text-4xl md:text-6xl my-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-yellow-600 via-yellow-300 to-yellow-600">
           hueputalo stickers
         </h1>
 
