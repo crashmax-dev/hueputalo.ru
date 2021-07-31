@@ -37,15 +37,16 @@ export default function StickersPage({ packName, stickers }: InferGetStaticProps
         </button>
       </main>
 
-      {/* <footer className="flex items-center justify-center w-full h-24 font-semibold">
+      <footer className="flex items-center justify-center w-full h-24 font-semibold">
         <a
+          href="https://twitch.tv/ma7emat1k"
           className="flex items-center justify-center"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Author ???
+          Author ma7emat1k
         </a>
-      </footer> */}
+      </footer>
     </div>
   )
 }
