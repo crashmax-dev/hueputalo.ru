@@ -1,9 +1,12 @@
 import Telegraf from '~/lib/Telegraf'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { InferGetStaticPropsType } from 'next'
 
 export default function StickersPage({ packName, stickers }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const router = useRouter()
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-white bg-gray-800">
       <Head>
@@ -31,7 +34,7 @@ export default function StickersPage({ packName, stickers }: InferGetStaticProps
         <button
           type="button"
           className="p-3 w-40 my-12 font-semibold rounded-xl bg-gray-700 hover:bg-gray-600"
-          onClick={() => location.href = `tg://addstickers?set=${packName}`}
+          onClick={() => router.push(`tg://addstickers?set=${packName}`)}
         >
           Add Stickers
         </button>
