@@ -1,4 +1,4 @@
-import Telegraf from '~/lib/Telegraf'
+import { Telegram } from '~/lib/Telegraf'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -56,10 +56,10 @@ export default function StickersPage({ packName, stickers }: InferGetStaticProps
 
 export async function getStaticProps() {
   const packName = 'OmegaLUL_CELIK'
-  const stickersSet = await Telegraf.telegram.getStickerSet(packName)
+  const stickersSet = await Telegram.getStickerSet(packName)
   const stickers = await Promise.all(
     stickersSet.stickers.map(async ({ file_id }) => {
-      return (await Telegraf.telegram.getFile(file_id)).file_id
+      return (await Telegram.getFile(file_id)).file_id
     })
   )
 
