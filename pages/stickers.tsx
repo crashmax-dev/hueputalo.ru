@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { InferGetStaticPropsType } from 'next'
 
-export default function StickersPage({ packName, stickers }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function StickersPage({ name, stickers }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter()
 
   return (
@@ -19,14 +19,14 @@ export default function StickersPage({ packName, stickers }: InferGetStaticProps
         </h1>
 
         <div className="grid grid-rows-6 sm:grid-rows-3 grid-flow-col gap-4">
-          {stickers.map((slug, idx) => (
+          {stickers.map(({ file_id, emoji }, key) => (
             <Image
-              key={idx}
+              key={key}
               className="p-6 m-3 mt-6 text-left border w-96 rounded-xl bg-gray-700"
               width="128"
               height="128"
-              src={`/api/sticker/${slug}`}
-              alt="sticker"
+              src={`/api/sticker/${file_id}`}
+              alt={emoji}
             />
           ))}
         </div>
@@ -34,7 +34,7 @@ export default function StickersPage({ packName, stickers }: InferGetStaticProps
         <button
           type="button"
           className="p-3 w-40 my-12 font-semibold rounded-xl bg-gray-700 hover:bg-gray-600"
-          onClick={() => router.push(`tg://addstickers?set=${packName}`)}
+          onClick={() => router.push(`tg://addstickers?set=${name}`)}
         >
           Add Stickers
         </button>
@@ -56,16 +56,11 @@ export default function StickersPage({ packName, stickers }: InferGetStaticProps
 
 export async function getStaticProps() {
   const packName = 'OmegaLUL_CELIK'
-  const stickersSet = await Telegram.getStickerSet(packName)
-  const stickers = await Promise.all(
-    stickersSet.stickers.map(async ({ file_id }) => {
-      return (await Telegram.getFile(file_id)).file_id
-    })
-  )
+  const { name, stickers } = await Telegram.getStickerSet(packName)
 
   return {
     props: {
-      packName,
+      name,
       stickers
     },
     revalidate: 60 * 60 * 24 // 24 hours
