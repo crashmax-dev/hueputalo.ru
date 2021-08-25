@@ -6,6 +6,11 @@ module.exports = {
         source: '/',
         destination: 'https://twitch.tv/quakerlegend',
         permanent: true
+      },
+      {
+        source: '/stickers',
+        destination: 'https://telegram-stickers.vercel.app/OmegaLUL_CELIK',
+        permanent: true
       }
     ]
   }
