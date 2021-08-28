@@ -13,15 +13,13 @@
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "autoprefixer": "^10.3.1",
-    "next": "latest",
+    "next": "^11.1.0",
     "postcss": "^8.3.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "tailwindcss": "^2.2.7",
-    "telegraf": "^4.4.1"
+    "tailwindcss": "^2.2.7"
   },
   "devDependencies": {
-    "@types/node": "^14.14.25",
     "@types/react": "^17.0.1",
     "eslint": "^7.19.0",
     "eslint-config-next": "^11.0.1",
