@@ -30,7 +30,7 @@ export default function BishepPage() {
           <p>Единственный минус Хуепутала Бишепа - это запах когда он срёт! А потом этот обосрыш бегает с грязными в говне ногами по чистой кровати и воняет...</p>
         </Text>
 
-        <div className="grid sm:grid-cols-1 lg:grid-cols-2 my-12 gap-6">
+        <div className="grid sm:grid-cols-2 my-12 gap-6">
           <Image
             src="/assets/bishep_1.png"
             width={441}
